@@ -73,6 +73,6 @@ document.getElementById('fullscreenBtn').addEventListener('click', function() {
             if (statusMessage) {
                 statusMessage.textContent = 'Oh congrats, you succeeded!';
             }
-        }, 2000); // 2 seconds delay
+        }, 4000); // 2 seconds delay
     }, 3000); // Adjust duration as needed
 });

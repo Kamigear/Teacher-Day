@@ -1,0 +1,115 @@
+body{
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  background: #eddf74;
+}
+/* Styles for the loader container */
+.loading-container {
+    display: none; /* Initially hidden */
+    position: fixed; /* Fixed position to cover the entire screen */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Full screen width */
+    height: 100vh; /* Full screen height */
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent background */
+    z-index: 1000; /* Ensure it appears on top of other content */
+    display: flex; /* Use Flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+/* Styles for the loader */
+.loader {
+    width: 60px; /* Example size */
+    height: 60px;
+    border: 8px solid #f3f3f3; /* Light gray */
+    border-top: 8px solid #3498db; /* Blue */
+    border-radius: 50%; /* Circular shape */
+    animation: spin 1s linear infinite; /* Spinning animation */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Stylish button for fullscreenBtn */
+#fullscreenBtn {
+    background: linear-gradient(135deg, #3498db, #8e44ad); /* Gradient background */
+    color: white; /* Text color */
+    border: none; /* Remove default border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 12px 24px; /* Vertical and horizontal padding */
+    font-size: 16px; /* Font size */
+    font-weight: bold; /* Bold text */
+    text-transform: uppercase; /* Uppercase text */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background 0.3s, transform 0.2s; /* Smooth transitions */
+    outline: none; /* Remove default focus outline */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+}
+
+/* Hover effect for fullscreenBtn */
+#fullscreenBtn:hover {
+    background: linear-gradient(135deg, #2980b9, #6c3483); /* Darker gradient */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Active effect for fullscreenBtn */
+#fullscreenBtn:active {
+    background: linear-gradient(135deg, #2980b9, #6c3483); /* Keep darker gradient */
+    transform: translateY(0); /* Remove lift effect */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduce shadow on click */
+}
+
+.loading-container {
+    display: none; /* Initially hidden */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Full screen height */
+    width: 100vw; /* Full screen width */
+    position: fixed; /* Fixed position to cover the entire screen */
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent background */
+    z-index: 1000; /* Ensure it appears on top of other content */
+    display: flex; /* Use Flexbox for centering */
+}
+
+/* Loader style */
+.loader {
+    width: 60px; /* Example size */
+    height: 60px;
+    border: 8px solid #f3f3f3; /* Light gray */
+    border-top: 8px solid #3498db; /* Blue */
+    border-radius: 50%; /* Circular shape */
+    animation: spin 1s linear infinite; /* Spinning animation */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Loading message style */
+#loadingMessage {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+}
+.fullscreen-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("image.png");
+    background-size: contain; /* Scale the image to fit within the viewport */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent repeating */
+    z-index: -1; /* Ensure it's behind other content */
+    transform: scale(0.5); /* Scale the image to half its size */
+    transform-origin: center; /* Scale the image from the center */
+}

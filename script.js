@@ -1,52 +1,42 @@
-// Handle fullscreen request
-document.getElementById('fullscreenBtn').addEventListener('click', () => {
+function requestFullscreen() {
     if (document.documentElement.requestFullscreen) {
         document.documentElement.requestFullscreen();
-    } else if (document.documentElement.mozRequestFullScreen) { // Firefox
+    } else if (document.documentElement.mozRequestFullScreen) {
         document.documentElement.mozRequestFullScreen();
-    } else if (document.documentElement.webkitRequestFullscreen) { // Chrome, Safari, and Opera
+    } else if (document.documentElement.webkitRequestFullscreen) {
         document.documentElement.webkitRequestFullscreen();
-    } else if (document.documentElement.msRequestFullscreen) { // IE/Edge
+    } else if (document.documentElement.msRequestFullscreen) {
         document.documentElement.msRequestFullscreen();
     }
-});
+}
 
-// Initial setup to hide loader and message
+document.getElementById('fullscreenBtn').addEventListener('click', requestFullscreen);
+
 const loadingContainer = document.getElementById('loadingContainer');
 const loadingMessage = document.getElementById('loadingMessage');
 const fullscreenBackground = document.getElementById('fullscreenBackground');
 const message = document.getElementById('message');
 
-// Hide the fullscreen background initially
 fullscreenBackground.style.display = 'none';
 loadingContainer.style.display = 'none';
 loadingMessage.style.display = 'none';
-message.style.display = 'block'; // Ensure the message is displayed initially
+message.style.display = 'block';
 document.getElementById('fullscreenBtn').style.display = 'block';
 
-// Handle button click
 document.getElementById('fullscreenBtn').addEventListener('click', function() {
-    // Hide the <h2> and button elements when the button is clicked
     message.style.display = 'none';
     this.style.display = 'none';
 
-    // Show the loader and loading message
-    loadingContainer.style.display = 'flex'; // Show the loader
-    loadingMessage.style.display = 'block'; // Show the loading message
+    loadingContainer.style.display = 'flex';
+    loadingMessage.style.display = 'block';
 
-    // Simulate a loading process
     setTimeout(() => {
-        // Hide the loader and loading message
         loadingContainer.style.display = 'none';
         loadingMessage.style.display = 'none';
         
-        // Show alert with the new message
         alert('Github says: Error occurred. Please refresh the page.');
+        document.body.style.backgroundColor = 'white';
 
-        // Change body background to white and show message
-        document.body.style.backgroundColor = 'white'; // Set background to white
-
-        // Create or update the h2 element for the message
         let statusMessage = document.getElementById('statusMessage');
         if (!statusMessage) {
             statusMessage = document.createElement('h2');
@@ -57,9 +47,8 @@ document.getElementById('fullscreenBtn').addEventListener('click', function() {
             statusMessage.textContent = 'Still don\'t work, maybe something is wrong..';
         }
 
-        // Wait 2 seconds, then show the background image and update the message
         setTimeout(() => {
-            document.body.style.backgroundColor = ''; // Reset background color
+            document.body.style.backgroundColor = '';
             if (!fullscreenBackground) {
                 const newBackground = document.createElement('div');
                 newBackground.id = 'fullscreenBackground';
@@ -69,10 +58,9 @@ document.getElementById('fullscreenBtn').addEventListener('click', function() {
                 fullscreenBackground.style.display = 'block';
             }
 
-            // Update the message
             if (statusMessage) {
                 statusMessage.textContent = 'Oh congrats, you succeeded!';
             }
-        }, 4000); // 2 seconds delay
-    }, 3000); // Adjust duration as needed
+        }, 4000);
+    }, 3000);
 });
